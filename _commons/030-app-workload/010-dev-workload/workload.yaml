@@ -1,0 +1,13 @@
+apiVersion: carto.run/v1alpha1
+kind: Workload
+metadata:
+  name: dev
+  labels:
+    gitops/workload-type: web
+
+spec:
+  source:
+    git:
+      url: https://github.com/chanwit/hello-world
+      ref:
+        branch: main
