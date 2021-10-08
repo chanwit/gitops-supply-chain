@@ -19,9 +19,9 @@ spec:
     namespace: cert-manager
   - apiVersion: apps/v1
     kind: Deployment
-    name: cert-manager
-    namespace: cert-manager-cainjector
+    name: cert-manager-cainjector
+    namespace: cert-manager
   - apiVersion: apps/v1
     kind: Deployment
-    name: cert-manager
-    namespace: cert-manager-webhook
+    name: cert-manager-webhook
+    namespace: cert-manager
