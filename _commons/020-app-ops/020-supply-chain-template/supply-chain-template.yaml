@@ -49,7 +49,6 @@ spec:
     kind: Deployment
     metadata:
       name: $(workload.metadata.name)$
-      namespace: $(workload.metadata.namespace)$
     spec:
       selector:
         matchLabels:
