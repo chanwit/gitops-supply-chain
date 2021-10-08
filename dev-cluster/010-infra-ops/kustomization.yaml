@@ -3,4 +3,5 @@ kind: Kustomization
 resources:
 - 010-cert-manager.yaml
 - 020-kpack.yaml
+- 025-sealed-secrets.yaml
 - 030-cartographer.yaml
