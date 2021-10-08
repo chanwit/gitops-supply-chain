@@ -12,3 +12,16 @@ spec:
     kind: GitRepository
     name: flux-system
   validation: client
+  healthChecks:
+  - apiVersion: apps/v1
+    kind: Deployment
+    name: cert-manager
+    namespace: cert-manager
+  - apiVersion: apps/v1
+    kind: Deployment
+    name: cert-manager
+    namespace: cert-manager-cainjector
+  - apiVersion: apps/v1
+    kind: Deployment
+    name: cert-manager
+    namespace: cert-manager-webhook

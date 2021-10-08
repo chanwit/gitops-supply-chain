@@ -2,20 +2,16 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
-  name: 030-cartographer
+  name: 010-kpack-builder
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./_commons/010-infra-ops/030-cartographer
+  path: ./_commons/020-app-ops/010-kpack-builder
   prune: true
   sourceRef:
     kind: GitRepository
     name: flux-system
   validation: client
+  targetNamespace: dev
   dependsOn:
-  - name: 010-cert-manager
-  healthChecks:
-  - apiVersion: apps/v1
-    kind: Deployment
-    name: cartographer-controller
-    namespace: cartographer-system
+  - name: 020-kpack

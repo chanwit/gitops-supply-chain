@@ -12,3 +12,12 @@ spec:
     kind: GitRepository
     name: flux-system
   validation: client
+  healthChecks:
+  - apiVersion: apps/v1
+    kind: Deployment
+    name: kpack-controller
+    namespace: kpack
+  - apiVersion: apps/v1
+    kind: Deployment
+    name: kpack-webhook
+    namespace: kpack
