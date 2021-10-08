@@ -25,7 +25,7 @@ metadata:
 spec:
   serviceAccountRef:
     name: service-account
-    namespace: default
+    namespace: dev
   tag:  chanwit/demo-go-builder
   stack:
     name: stack
