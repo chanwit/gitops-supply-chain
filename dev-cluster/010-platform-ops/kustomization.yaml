@@ -1,5 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
+metadata:
+  namespace: flux-system
+  labels:
+    platform-ops: "true"
 resources:
 - 010-cert-manager.yaml
 - 020-kpack.yaml

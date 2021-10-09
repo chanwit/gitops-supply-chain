@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./_commons/010-infra-ops/020-kpack
+  path: ./_commons/010-platform-ops/020-kpack
   prune: true
   sourceRef:
     kind: GitRepository
