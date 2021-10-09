@@ -14,5 +14,4 @@ spec:
   validation: client
   targetNamespace: dev
   dependsOn:
-  - name: flux-system
-  - name: 020-kpack
+    - name: 030-cartographer
