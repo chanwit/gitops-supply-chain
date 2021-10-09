@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./_commons/010-infra-ops/030-cartographer
+  path: ./_commons/010-platform-ops/030-cartographer
   prune: true
   sourceRef:
     kind: GitRepository
