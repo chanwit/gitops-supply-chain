@@ -4,3 +4,5 @@ resources:
 - 000-dev-ns.yaml
 - 010-kpack-builder.yaml
 - 020-supply-chain-template.yaml
+commonLabels:
+  app-ops: "true"

@@ -3,3 +3,5 @@ kind: Kustomization
 resources:
 - 000-supply-chain.yaml
 - 010-dev-workload.yaml
+commonLabels:
+  app-workload: "true"
