@@ -2,11 +2,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
-  name: 010-kpack-builder
+  name: 20a-20-supply-chain-template
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./_commons/020-app-ops/010-kpack-builder
+  path: ./_artifacts/20-app-ops/20a-20-supply-chain-template
   prune: true
   sourceRef:
     kind: GitRepository
@@ -14,4 +14,4 @@ spec:
   validation: client
   targetNamespace: dev
   dependsOn:
-  - name: 020-kpack
+  - name: 10p-30-cartographer

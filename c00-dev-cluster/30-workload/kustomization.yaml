@@ -1,7 +1,7 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-- 000-supply-chain.yaml
-- 010-dev-workload.yaml
+- 30w-00-supply-chain.yaml
+- 30w-10-dev-workload.yaml
 commonLabels:
   app-workload: "true"
