@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./_artifacts/030-app-workload/30w-00-supply-chain
+  path: ./_artifacts/30-workload/30w-00-supply-chain
   prune: true
   sourceRef:
     kind: GitRepository
