@@ -30,7 +30,7 @@ spec:
     metadata:
       name: $(workload.metadata.name)$
     spec:
-      tag: chanwit/demo-$(workload.metadata.name)$:$(sources.source.status.artifact.revision)
+      tag: chanwit/demo-$(workload.metadata.name)$:$(sources.source.status.artifact.revision)$
       serviceAccount: service-account
       builder:
         kind: ClusterBuilder
