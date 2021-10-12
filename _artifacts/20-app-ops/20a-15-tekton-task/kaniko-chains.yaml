@@ -40,10 +40,10 @@ spec:
   workspaces:
   - name: source
     description: Holds the context and Dockerfile
-  # - name: dockerconfig
-  #   description: Includes a docker `config.json`
-  #   optional: true
-  #   mountPath: /root/.docker
+  - name: dockerconfig
+    description: Includes a docker `config.json`
+    optional: true
+    mountPath: /root/.docker
   results:
   - name: IMAGE_DIGEST
     description: Digest of the image just built.
