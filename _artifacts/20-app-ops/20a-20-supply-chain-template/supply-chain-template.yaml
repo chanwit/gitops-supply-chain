@@ -51,7 +51,6 @@ spec:
     metadata:
       generateName: kaniko-run-
     spec:
-      serviceAccount: service-account
       taskRef:
         name: kaniko-chains
       params:
