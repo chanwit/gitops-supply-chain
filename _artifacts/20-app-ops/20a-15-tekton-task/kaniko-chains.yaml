@@ -55,7 +55,7 @@ spec:
     image: bash
     script: |
       set -e
-      wget -qO- $(params.moduleURL) | tar xzf -
+      wget -qO- $(params.BLOB) | tar xzf -
   - name: build-and-push
     workingDir: $(workspaces.source.path)
     image: $(params.BUILDER_IMAGE)
