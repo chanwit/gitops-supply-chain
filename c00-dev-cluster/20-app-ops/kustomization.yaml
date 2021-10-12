@@ -15,6 +15,6 @@ commonLabels:
 #
 resources:
 - ../../_features/20-app-ops/20a-00-dev-ns.yaml
-- ../../_features/disable.yaml # ../../_features/20-app-ops/20a-10-kpack-builder.yaml
+# - ../../_features/disable.yaml # ../../_features/20-app-ops/20a-10-kpack-builder.yaml
 - ../../_features/20-app-ops/20a-15-tekton-task.yaml
 - ../../_features/20-app-ops/20a-20-supply-chain-template.yaml
