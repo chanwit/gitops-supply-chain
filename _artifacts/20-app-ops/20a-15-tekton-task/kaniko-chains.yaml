@@ -43,7 +43,7 @@ spec:
   - name: dockerconfig
     description: Includes a docker `config.json`
     optional: true
-    mountPath: /kaniko/.docker
+    mountPath: /root/.docker
   results:
   - name: IMAGE_DIGEST
     description: Digest of the image just built.
@@ -56,15 +56,14 @@ spec:
     script: |
       set -e
       wget -qO- $(params.BLOB) | tar xzf -
-      cat /kaniko/.docker/config.json || true
-      ls -al /kaniko/.docker || true
-      cat /root/.docker/config.json || true
-      ls -al /root/.docker || true
     securityContext:
       runAsUser: 0
   - name: build-and-push
     workingDir: $(workspaces.source.path)
     image: $(params.BUILDER_IMAGE)
+    env:
+    - name: "DOCKER_CONFIG"
+      value: "/root/.docker/"
     args:
     - $(params.EXTRA_ARGS)
     - --dockerfile=$(params.DOCKERFILE)
