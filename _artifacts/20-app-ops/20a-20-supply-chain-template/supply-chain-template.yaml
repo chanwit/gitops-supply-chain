@@ -44,7 +44,7 @@ kind: ClusterImageTemplate
 metadata:
   name: image-by-tekton
 spec:
-  imagePath: .status.latestImage
+  imagePath: .testResults.[?(@.name=='IMAGE_URL')].value
   template:
     apiVersion: tekton.dev/v1beta1
     kind: TaskRun
@@ -62,9 +62,6 @@ spec:
       workspaces:
       - name: source
         emptyDir: {}
-      #- name: dockerconfig
-      #  secret:
-      #    secretName: registry-credentials
 ---
 apiVersion: carto.run/v1alpha1
 kind: ClusterTemplate

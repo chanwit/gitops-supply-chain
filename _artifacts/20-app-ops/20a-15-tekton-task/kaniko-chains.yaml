@@ -76,6 +76,6 @@ spec:
     image: bash
     script: |
       set -e
-      echo $(params.IMAGE) | tee $(results.IMAGE_URL.path)
+      echo -n "$(params.IMAGE)@$(results.IMAGE_DIGEST)" > $(results.IMAGE_URL.path)
     securityContext:
       runAsUser: 0
