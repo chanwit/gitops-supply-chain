@@ -40,6 +40,34 @@ spec:
           url: $(sources.source.url)$
 ---
 apiVersion: carto.run/v1alpha1
+kind: ClusterImageTemplate
+metadata:
+  name: image-by-tekton
+spec:
+  imagePath: .status.latestImage
+  template:
+    apiVersion: tekton.dev/v1beta1
+    kind: TaskRun
+    metadata:
+      generateName: kaniko-run-
+    spec:
+      serviceAccount: service-account
+      taskRef:
+        name: kaniko-chains
+      params:
+      - name: IMAGE
+        value: chanwit/demo-$(workload.metadata.name)$
+      params:
+      - name: BLOB
+        value: $(sources.source.url)$
+      workspaces:
+      - name: source
+        emptyDir: {}
+      - name: dockerconfig
+        secret:
+          secretName: registry-credentials
+---
+apiVersion: carto.run/v1alpha1
 kind: ClusterTemplate
 metadata:
   name: app-deploy

@@ -1,9 +1,22 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
-resources:
-- 10p-00-sealed-secrets.yaml
-- 10p-10-cert-manager.yaml
-- 10p-20-kpack.yaml
-- 10p-30-cartographer.yaml
+metadata:
+  labels:
+    platform-layer: 10-platform-ops
+    cluster: c00-dev-cluster
+#
+# Label for grouping
+#
 commonLabels:
   platform-ops: "true"
+
+#
+# Feature Toggles
+#
+resources:
+- ../../_features/10-platform-ops/10p-00-sealed-secrets.yaml
+- ../../_features/10-platform-ops/10p-10-cert-manager.yaml
+- ../../_features/disable.yaml # ../../_features/10-platform-ops/10p-20-kpack.yaml
+- ../../_features/10-platform-ops/10p-25-tekton.yaml
+- ../../_features/10-platform-ops/10p-30-cartographer.yaml
+
