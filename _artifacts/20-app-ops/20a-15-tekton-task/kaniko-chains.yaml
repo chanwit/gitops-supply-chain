@@ -40,10 +40,10 @@ spec:
   workspaces:
   - name: source
     description: Holds the context and Dockerfile
-  - name: dockerconfig
-    description: Includes a docker `config.json`
-    optional: true
-    mountPath: /root/.docker
+  # - name: dockerconfig
+  #   description: Includes a docker `config.json`
+  #   optional: true
+  #   mountPath: /root/.docker
   results:
   - name: IMAGE_DIGEST
     description: Digest of the image just built.
@@ -61,9 +61,6 @@ spec:
   - name: build-and-push
     workingDir: $(workspaces.source.path)
     image: $(params.BUILDER_IMAGE)
-    env:
-    - name: "DOCKER_CONFIG"
-      value: "/root/.docker/"
     args:
     - $(params.EXTRA_ARGS)
     - --dockerfile=$(params.DOCKERFILE)

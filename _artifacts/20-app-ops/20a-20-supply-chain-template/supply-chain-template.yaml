@@ -62,9 +62,9 @@ spec:
       workspaces:
       - name: source
         emptyDir: {}
-      - name: dockerconfig
-        secret:
-          secretName: registry-credentials
+      #- name: dockerconfig
+      #  secret:
+      #    secretName: registry-credentials
 ---
 apiVersion: carto.run/v1alpha1
 kind: ClusterTemplate
