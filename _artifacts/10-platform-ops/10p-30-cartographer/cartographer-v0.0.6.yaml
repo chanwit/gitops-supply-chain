@@ -913,6 +913,7 @@ spec:
       containers:
       - args:
         - -cert-dir=/cert
+        - -dev=true
         image: index.docker.io/projectcartographer/cartographer@sha256:8db4ec748f9e0ba6f33e94024692d3814d13d597a2ed7ba8c21b1ce1e2e41d7b
         name: cartographer-controller
         resources:
