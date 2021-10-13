@@ -1,0 +1,44 @@
+#
+# This is the Dev Mode Kustomization config,
+# for preparing / testing artifacts prior to putting them into a GitOps workflow.
+#
+# It renders artifacts without the GitOps workflow,
+# and sends then result directly to the cluster, via kubectl.
+#
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+metadata:
+  labels:
+    cluster: c00-devmode
+#
+# Label for grouping
+#
+commonLabels:
+  dev-mode: "true"
+
+#
+# bash: find _artifacts/ -name "*.yaml" | sort
+#
+resources:
+# - ../_artifacts/10-platform-ops/10p-00-sealed-secrets/sealed-secrets.yaml
+# - ../_artifacts/10-platform-ops/10p-10-cert-manager/cert-manager-v1.5.3.yaml
+# - ../_artifacts/10-platform-ops/10p-20-kpack/kpack-v0.4.0.yaml
+# - ../_artifacts/10-platform-ops/10p-25-tekton/tekton-v0.27.yaml
+# - ../_artifacts/10-platform-ops/10p-30-cartographer/cartographer-ns.yaml
+# - ../_artifacts/10-platform-ops/10p-30-cartographer/cartographer-v0.0.6.yaml
+
+# - ../_artifacts/20-app-ops/20a-10-kpack-builder/kpack.yaml
+# - ../_artifacts/20-app-ops/20a-10-kpack-builder/sealed-secret.yaml
+# - ../_artifacts/20-app-ops/20a-10-kpack-builder/service-account.yaml
+- ../_artifacts/20-app-ops/20a-15-tekton-task/kaniko-chains.yaml
+# - ../_artifacts/20-app-ops/20a-15-tekton-task/sealed-secret.yaml
+# - ../_artifacts/20-app-ops/20a-15-tekton-task/service-account.yaml
+- ../_artifacts/20-app-ops/20a-20-supply-chain-template/supply-chain-template.yaml
+
+- ../_artifacts/30-workload/30w-00-supply-chain/supply-chain.yaml
+- ../_artifacts/30-workload/30w-10-dev-workload/workload.yaml
+
+# - ../_artifacts/40-promotion-workflow/40p-10-promote-to-staging/image-policy.yaml
+# - ../_artifacts/40-promotion-workflow/40p-10-promote-to-staging/image-scanner.yaml
+# - ../_artifacts/40-promotion-workflow/40p-20-promote-to-prod/image-policy.yaml
+# - ../_artifacts/40-promotion-workflow/40p-20-promote-to-prod/image-scanner.yaml

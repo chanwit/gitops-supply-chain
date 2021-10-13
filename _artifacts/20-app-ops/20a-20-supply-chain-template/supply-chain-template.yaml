@@ -21,7 +21,7 @@ spec:
 apiVersion: carto.run/v1alpha1
 kind: ClusterImageTemplate
 metadata:
-  name: image
+  name: image-old
 spec:
   imagePath: .status.latestImage
   template:
@@ -42,14 +42,14 @@ spec:
 apiVersion: carto.run/v1alpha1
 kind: ClusterImageTemplate
 metadata:
-  name: image-by-tekton
+  name: image
 spec:
-  imagePath: .testResults.[?(@.name=='IMAGE_URL')].value
+  imagePath: .status.taskResults.[?(@.name=='IMAGE_URL')].value
   template:
     apiVersion: tekton.dev/v1beta1
     kind: TaskRun
     metadata:
-      generateName: kaniko-run-
+      name: kaniko-run-build
     spec:
       serviceAccountName: service-account
       taskRef:
