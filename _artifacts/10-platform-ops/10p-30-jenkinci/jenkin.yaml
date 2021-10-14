@@ -16,7 +16,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: jenkins
+      chart: jenkin/jenkins
       sourceRef:
         kind: HelmRepository
         name: jenkin
