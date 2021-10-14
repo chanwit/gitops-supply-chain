@@ -2,11 +2,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
 kind: Kustomization
 metadata:
-  name: 10p-30-jenkinci
+  name: 10p-30-jenkinsci
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./_artifacts/10-platform-ops/10p-30-jenkinci
+  path: ./_artifacts/10-platform-ops/10p-30-jenkinsci
   prune: true
   sourceRef:
     kind: GitRepository

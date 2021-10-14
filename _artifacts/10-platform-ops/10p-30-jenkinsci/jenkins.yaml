@@ -2,7 +2,7 @@
 apiVersion: source.toolkit.fluxcd.io/v1beta1
 kind: HelmRepository
 metadata:
-  name: jenkin
+  name: jenkins
   namespace: flux-system
 spec:
   interval: 1h0m0s
@@ -11,15 +11,15 @@ spec:
 apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
-  name: jenkin
+  name: jenkins
   namespace: flux-system
 spec:
   chart:
     spec:
-      chart: jenkin/jenkins
+      chart: jenkins
       sourceRef:
         kind: HelmRepository
-        name: jenkin
+        name: jenkins
       version: '>=3.7.0'
   interval: 1h0m0s
   releaseName: jenkins
