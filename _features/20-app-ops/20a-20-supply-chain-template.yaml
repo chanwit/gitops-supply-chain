@@ -15,3 +15,4 @@ spec:
   targetNamespace: dev
   dependsOn:
   - name: 10p-30-cartographer
+  - name: 20a-00-dev-ns

@@ -13,7 +13,7 @@ spec:
     - name: image-builder
       templateRef:
         kind: ClusterImageTemplate
-        name: image
+        name: image-repo
       sources:
         - component: source-provider
           name: source

@@ -1,4 +1,15 @@
-apiVersion: v1
-kind: Namespace
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1beta1
+kind: Kustomization
 metadata:
-  name: dev
+  name: 20a-00-dev-ns
+  namespace: flux-system
+spec:
+  interval: 10m0s
+  path: ./_artifacts/20-app-ops/20a-00-dev-ns
+  prune: true
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  validation: client
+  targetNamespace: dev

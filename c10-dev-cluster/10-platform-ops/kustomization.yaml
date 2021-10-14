@@ -18,5 +18,6 @@ resources:
 - ../../_features/10-platform-ops/10p-10-cert-manager.yaml
 - ../../_features/disable.yaml # ../../_features/10-platform-ops/10p-20-kpack.yaml
 - ../../_features/10-platform-ops/10p-25-tekton.yaml
-- ../../_features/10-platform-ops/10p-30-cartographer.yaml
+- ../../_features/10-platform-ops/10p-30-jenkinci.yaml
+- ../../_features/10-platform-ops/10p-90-cartographer.yaml
 

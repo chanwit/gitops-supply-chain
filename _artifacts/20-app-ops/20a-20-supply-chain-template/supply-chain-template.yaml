@@ -21,7 +21,7 @@ spec:
 apiVersion: carto.run/v1alpha1
 kind: ClusterImageTemplate
 metadata:
-  name: image-old
+  name: kpack-image-builder
 spec:
   imagePath: .status.latestImage
   template:
@@ -42,9 +42,9 @@ spec:
 apiVersion: carto.run/v1alpha1
 kind: ClusterImageTemplate
 metadata:
-  name: image
+  name: tekton-image-builder
 spec:
-  imagePath: .status.taskResults.[?(@.name=='IMAGE_URL')].value
+  imagePath: .status.taskResults[?(@.name=='IMAGE_URL')].value
   template:
     apiVersion: tekton.dev/v1beta1
     kind: TaskRun
@@ -62,6 +62,27 @@ spec:
       workspaces:
       - name: source
         emptyDir: {}
+---
+apiVersion: carto.run/v1alpha1
+kind: ClusterImageTemplate
+metadata:
+  name: image-repo
+spec:
+  imagePath: .status.latestImage
+  template:
+    apiVersion: image.toolkit.fluxcd.io/v1beta1
+    kind: ImagePolicy
+    metadata:
+      name: dev-demo
+      annotations:
+        triggered-by: $(sources.source.url)$
+    spec:
+      imageRepositoryRef:
+        name: dev-demo
+        namespace: dev
+      policy:
+        semver:
+          range: 1.0.x
 ---
 apiVersion: carto.run/v1alpha1
 kind: ClusterTemplate

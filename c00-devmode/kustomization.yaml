@@ -30,9 +30,14 @@ resources:
 # - ../_artifacts/20-app-ops/20a-10-kpack-builder/kpack.yaml
 # - ../_artifacts/20-app-ops/20a-10-kpack-builder/sealed-secret.yaml
 # - ../_artifacts/20-app-ops/20a-10-kpack-builder/service-account.yaml
+
+- ../_artifacts/20-app-ops/20a-00-dev-ns/dev-ns.yaml
+- ../_artifacts/20-app-ops/20a-05-secrets/sealed-secret.yaml
+- ../_artifacts/20-app-ops/20a-05-secrets/service-account.yaml
+# cannot apply directly
+# - ../_artifacts/20-app-ops/20a-05-secrets/sops-age-sealed-secret.yaml
 - ../_artifacts/20-app-ops/20a-15-tekton-task/kaniko-chains.yaml
-# - ../_artifacts/20-app-ops/20a-15-tekton-task/sealed-secret.yaml
-# - ../_artifacts/20-app-ops/20a-15-tekton-task/service-account.yaml
+- ../_artifacts/20-app-ops/20a-18-image-repo/image-repo.yaml
 - ../_artifacts/20-app-ops/20a-20-supply-chain-template/supply-chain-template.yaml
 
 - ../_artifacts/30-workload/30w-00-supply-chain/supply-chain.yaml
